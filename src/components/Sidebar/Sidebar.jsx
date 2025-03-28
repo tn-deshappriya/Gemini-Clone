@@ -12,7 +12,7 @@ const Sidebar = () => {
           <p>New Chat</p>
         </div>
         <div className="resent">
-          <p className="resent-title">Resent</p>
+          <p className="resent-title">Recent</p>
           <div className="resent-entry">
             <img src={assets.message_icon} alt="" />
             <p>What is React ...</p>
