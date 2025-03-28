@@ -1,16 +1,10 @@
 import React from "react";
-
-import "Sidebar.css";
-
 import "../Sidebar/Sidebar.css";
 import { assets } from "../../assets/assets";
 
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <div className="top"></div>
-      <div className="bottom"></div>
-
       <div className="top">
         <img className="menu" src={assets.menu_icon} alt="menu-icon" />
         <div className="new-chat">
