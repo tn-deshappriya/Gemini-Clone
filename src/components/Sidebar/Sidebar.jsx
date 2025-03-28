@@ -19,7 +19,20 @@ const Sidebar = () => {
           </div>
         </div>
       </div>
-      <div className="bottom"></div>
+      <div className="bottom">
+        <div className="bottom-item  resent-entry">
+          <img src={assets.question_icon} alt="" />
+          <p>Help</p>
+        </div>
+        <div className="bottom-item  resent-entry">
+          <img src={assets.history_icon} alt="" />
+          <p>Activity</p>
+        </div>
+        <div className="bottom-item  resent-entry">
+          <img src={assets.setting_icon} alt="" />
+          <p>Settings</p>
+        </div>
+      </div>
     </div>
   );
 };
