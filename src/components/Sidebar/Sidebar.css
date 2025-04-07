@@ -25,7 +25,13 @@
     font-size: 14px;
     color: grey;
     cursor: pointer;
-}.sidebar .resent-title{
+}
+.sidebar .resent{
+ display: flex;
+ flex-direction: column;
+ animation: fadeIn 1.5s;
+}
+.sidebar .resent-title{
     margin-top: 30px;
     margin-bottom: 20px;
 }
@@ -49,4 +55,10 @@
 .sidebar .bottom-item{
     padding-right: 10px;
     cursor: pointer;
+}
+
+@media (max-width:600px){
+.sidebar{
+    display: none;
+}
 }
