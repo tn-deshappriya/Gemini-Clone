@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import "../Main/Main.css";
+import "./Main.css";
 import { assets } from "../../assets/assets";
 import { Context } from "../../context/Context";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const Main = () => {
   const {
@@ -13,12 +14,23 @@ const Main = () => {
     setInput,
     input,
   } = useContext(Context);
+  
+  const { darkMode } = useContext(ThemeContext);
+  
+  // Get React Icons component
+  const SendIcon = assets.send_icon_react;
+
+  const handleKeyPress = (e) => {
+    if (e.key === 'Enter' && input.trim() !== '') {
+      onSent();
+    }
+  };
 
   return (
-    <div className="main">
+    <div className={`main ${darkMode ? 'dark' : ''}`}>
       <div className="nav">
         <p>Gemini</p>
-        <img src={assets.user_icon} alt="" />
+        <img src={assets.user_icon} alt="User" />
       </div>
       <div className="main-container">
         {!showResult ? (
@@ -30,32 +42,44 @@ const Main = () => {
               <p>How can I help you today?</p>
             </div>
             <div className="cards">
-              <div className="card">
+              <div className="card" onClick={() => {
+                setInput("Suggest beautiful places to see on an upcoming road trip");
+                onSent("Suggest beautiful places to see on an upcoming road trip");
+              }}>
                 <p>Suggest beautiful places to see on an upcoming road trip</p>
-                <img src={assets.compass_icon} alt="" />
+                <img src={assets.compass_icon} alt="Compass" />
               </div>
-              <div className="card">
+              <div className="card" onClick={() => {
+                setInput("Briefly summarize this concept: urban planning");
+                onSent("Briefly summarize this concept: urban planning");
+              }}>
                 <p>Briefly summarize this concept: urban planning </p>
-                <img src={assets.bulb_icon} alt="" />
+                <img src={assets.bulb_icon} alt="Bulb" />
               </div>
-              <div className="card">
+              <div className="card" onClick={() => {
+                setInput("Brainstorm team bonding activities for our work retreat");
+                onSent("Brainstorm team bonding activities for our work retreat");
+              }}>
                 <p>Brainstorm team bonding activities for our work retreat</p>
-                <img src={assets.message_icon} alt="" />
+                <img src={assets.message_icon} alt="Message" />
               </div>
-              <div className="card">
+              <div className="card" onClick={() => {
+                setInput("Improve the readbility of the following code");
+                onSent("Improve the readbility of the following code");
+              }}>
                 <p>Improve the readbility of the following code</p>
-                <img src={assets.code_icon} alt="" />
+                <img src={assets.code_icon} alt="Code" />
               </div>
             </div>
           </>
         ) : (
           <div className="result">
             <div className="result-title">
-              <img src={assets.user_icon} alt="" />
+              <img src={assets.user_icon} alt="User" />
               <p>{recentPrompt}</p>
             </div>
             <div className="result-data">
-              <img src={assets.gemini_icon} alt="" />
+              <img src={assets.gemini_icon} alt="Gemini" />
               {loading ? (
                 <div className="loader">
                   <hr />
@@ -73,16 +97,19 @@ const Main = () => {
           <div className="search-box">
             <input
               type="text"
-              placeholder="Enter Prompt here"
+              placeholder="Enter prompt here"
               onChange={(e) => setInput(e.target.value)}
+              onKeyPress={handleKeyPress}
               value={input}
             />
             <div>
-              <img src={assets.gallery_icon} alt="" />
-              <img src={assets.mic_icon} alt="" />
-              {input ? (
-                <img src={assets.send_icon} alt="" onClick={() => onSent()} />
-              ) : null}
+              <img src={assets.gallery_icon} alt="Gallery" />
+              <img src={assets.mic_icon} alt="Mic" />
+              {input && (
+                <span className="send-icon-wrapper" onClick={() => onSent()}>
+                  <SendIcon className="react-icon send" />
+                </span>
+              )}
             </div>
           </div>
           <p className="bottom-info">
@@ -94,4 +121,5 @@ const Main = () => {
     </div>
   );
 };
+
 export default Main;
