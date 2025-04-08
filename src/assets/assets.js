@@ -14,6 +14,10 @@ import code_icon from './code_icon.png'
 import send_icon from './send_icon.png'
 import gemini_icon from './gemini_icon.png'
 
+// Import React Icons
+import { FaMoon, FaSun, FaTrash } from 'react-icons/fa';
+import { IoSend } from 'react-icons/io5';
+
 export const assets = {
     history_icon,
     menu_icon,
@@ -29,5 +33,9 @@ export const assets = {
     message_icon,
     code_icon,
     send_icon,
-    gemini_icon
+    gemini_icon,
+    dark_icon: FaMoon,
+    light_icon: FaSun,
+    delete_icon: FaTrash,
+    send_icon_react: IoSend
 }

@@ -5,15 +5,25 @@
     justify-content: space-between;
     background-color: #f0f4f9;
     padding: 25px 15px;
+    transition: background-color 0.3s ease;
 }
-.sidebar img{
+
+.sidebar.dark {
+    background-color: #1a1a1a;
+    color: #e6e6e6;
+}
+
+.sidebar img, .sidebar .react-icon {
     width: 20px;
+    height: 20px;
 }
+
 .sidebar .menu{
     display: block;
     margin-left: 10px;
     cursor: pointer;
 }
+
 .sidebar .new-chat{
     margin-top: 50px;
     display: inline-flex;
@@ -25,40 +35,102 @@
     font-size: 14px;
     color: grey;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
-.sidebar .resent{
- display: flex;
- flex-direction: column;
- animation: fadeIn 1.5s;
+
+.sidebar.dark .new-chat {
+    background-color: #2a2a2a;
+    color: #d4d4d4;
 }
-.sidebar .resent-title{
-    margin-top: 30px;
-    margin-bottom: 20px;
-}
-.sidebar .resent-entry{
+
+.sidebar .recent{
     display: flex;
-    align-items: start;
+    flex-direction: column;
+    animation: fadeIn 1.5s;
+    margin-top: 30px;
+}
+
+.sidebar .recent-title{
+    margin-bottom: 20px;
+    color: #585858;
+    font-weight: 500;
+}
+
+.sidebar.dark .recent-title {
+    color: #b4b4b4;
+}
+
+.sidebar .recent-entry{
+    display: flex;
+    align-items: center;
     gap: 10px;
     padding: 10px;
-    padding-right: 40px;
-    border-radius: 50px;
+    border-radius: 10px;
     color: #282828;
     cursor: pointer;
+    position: relative;
+    transition: background-color 0.2s ease;
 }
-.sidebar .resent-entry:hover{
+
+.sidebar.dark .recent-entry {
+    color: #e0e0e0;
+}
+
+.sidebar .recent-entry:hover{
     background-color: #e2e6eb;
 }
+
+.sidebar.dark .recent-entry:hover {
+    background-color: #2d2d2d;
+}
+
+.sidebar .recent-entry.active {
+    background-color: #d4d8df;
+}
+
+.sidebar.dark .recent-entry.active {
+    background-color: #3a3a3a;
+}
+
+.delete-chat {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+}
+
+.recent-entry:hover .delete-chat {
+    opacity: 1;
+}
+
 .sidebar .bottom{
     display: flex;
     flex-direction: column;
+    margin-top: auto;
 }
+
 .sidebar .bottom-item{
-    padding-right: 10px;
+    padding: 10px;
     cursor: pointer;
 }
 
-@media (max-width:600px){
-.sidebar{
-    display: none;
+.react-icon {
+    color: var(--text-secondary);
 }
+
+.sidebar.dark .react-icon {
+    color: var(--text-primary);
+}
+
+@media (max-width:600px){
+    .sidebar{
+        display: none;
+    }
 }
