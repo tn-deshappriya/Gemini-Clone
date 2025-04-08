@@ -1,6 +1,4 @@
-<div align="center">
 # 🤖 Gemini AI Clone
-</div>
 
 <div align="center">
   <img src="https://img.shields.io/badge/React-19.0.0-blue?logo=react" alt="React Version" />
