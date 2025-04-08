@@ -8,7 +8,7 @@
 </div>
 
 <p align="center">
-  <img width="100%" alt="Gemini Clone Banner" src="https://bsmedia.business-standard.com/_media/bs/img/article/2023-12/07/full/1701928885-3932.jpg">
+  <img width="100%" height="300px" alt="Gemini Clone Banner" src="https://bsmedia.business-standard.com/_media/bs/img/article/2023-12/07/full/1701928885-3932.jpg" style="object-fit: cover;">
 </p>
 
 ## ✨ Features
